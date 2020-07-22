@@ -13,6 +13,18 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/:id', (req, res) => {
+  const idProject = req.params.id
+  const sql = 'SELECT * FROM projet WHERE id = ?'
+  connection.query(sql, [idProject], (err, results) => {
+    if (err) {
+      res.status(500).send('Erreur dans la récupération du projet')
+    } else {
+      res.status(200).send(results[0])
+    }
+  })
+})
+
 router.post('/', (req, res) => {
   const formData = req.body
   console.log(formData)
@@ -20,8 +32,8 @@ router.post('/', (req, res) => {
     if (err) {
       res.status(500).send("Erreur lors de l'ajout d'un projet")
     } else {
-      const newProject = { id: results.insertId, ...formData }
-      res.status(200).json(newProject)
+      // const newProject = { id: results.insertId, ...formData }
+      res.status(200).json('Nouveau projet ajouté !')
     }
   })
 })
