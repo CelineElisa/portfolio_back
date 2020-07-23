@@ -27,7 +27,6 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   const formData = req.body
-  console.log(formData)
   connection.query('INSERT INTO projet SET ?', [formData], (err, results) => {
     if (err) {
       res.status(500).send("Erreur lors de l'ajout d'un projet")
@@ -41,8 +40,6 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const idProject = req.params.id
   const formData = req.body
-  console.log(formData)
-  console.log(idProject)
   connection.query(
     'UPDATE projet SET ? WHERE id = ?',
     [formData, idProject],
@@ -50,8 +47,8 @@ router.put('/:id', (req, res) => {
       if (err) {
         res.status(500).send("Erreur lors de la modification du projet")
       } else {
-        const updatedProject = { id: parseInt(idProject), ...formData }
-        res.status(200).json(updatedProject)
+        //const updatedProject = { id: parseInt(idProject), ...formData }
+        res.status(200).json('Le projet a bien été modifié')
       }
     }
   )
