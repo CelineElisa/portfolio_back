@@ -17,6 +17,7 @@ app.use(cors({
   }))
 
 app.use('/api/projects', routes.Projects)
+app.use('/api/profile', routes.Profile)
 
 app.listen(port, (err) => {
   if (err) {
