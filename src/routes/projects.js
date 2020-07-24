@@ -13,20 +13,6 @@ router.get('/', (req, res) => {
   })
 })
 
-// router.get('/withScreenshots', (req, res) => {
-//   const sql = `SELECT p.*, s.name AS screenshot_name, s.url AS screenshot_url, s.id_project, s.id AS id_screenshot
-//     FROM projet p
-//     JOIN screenshot s
-//     WHERE p.id = s.id_project`
-//   connection.query(sql, (err, results) => {
-//     if (err) {
-//       res.status(500).send('Erreur dans la récupération des projets')
-//     } else {
-//       res.status(200).send(results)
-//     }
-//   })
-// })
-
 router.get('/:id', (req, res) => {
   const idProject = req.params.id
   const sql = 'SELECT * FROM projet WHERE id = ?'

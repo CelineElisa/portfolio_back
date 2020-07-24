@@ -16,8 +16,6 @@ router.get('/', (req, res) => {
 router.put('/:id', (req, res) => {
   const idProfile = req.params.id
   const formData = req.body
-  console.log(formData)
-  console.log(idProfile)
   connection.query(
     'UPDATE profile SET ? WHERE id = ?',
     [formData, idProfile],
