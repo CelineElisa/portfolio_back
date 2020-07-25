@@ -21,10 +21,10 @@ router.put('/:id', (req, res) => {
     [formData, idProfile],
     (err) => {
       if (err) {
-        res.status(500).send("Erreur lors de la modification du profil")
+        res.status(500).send('Erreur lors de la modification du profil')
       } else {
-        //const updatedProject = { id: parseInt(idProject), ...formData }
-        res.status(200).json('Le profil a bien été modifié')
+        const updatedProfile = { id: parseInt(idProfile), ...formData }
+        res.status(200).json(updatedProfile)
       }
     }
   )

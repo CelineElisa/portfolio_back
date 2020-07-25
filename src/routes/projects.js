@@ -31,8 +31,8 @@ router.post('/', (req, res) => {
     if (err) {
       res.status(500).send("Erreur lors de l'ajout d'un projet")
     } else {
-      // const newProject = { id: results.insertId, ...formData }
-      res.status(200).json('Nouveau projet ajouté !')
+      const newProject = { id: results.insertId, ...formData }
+      res.status(200).json(newProject)
     }
   })
 })
@@ -45,24 +45,24 @@ router.put('/:id', (req, res) => {
     [formData, idProject],
     (err) => {
       if (err) {
-        res.status(500).send("Erreur lors de la modification du projet")
+        res.status(500).send('Erreur lors de la modification du projet')
       } else {
-        //const updatedProject = { id: parseInt(idProject), ...formData }
-        res.status(200).json('Le projet a bien été modifié')
+        const updatedProject = { id: parseInt(idProject), ...formData }
+        res.status(200).json(updatedProject)
       }
     }
   )
 })
 
 router.delete('/:id', (req, res) => {
-    const idProject = req.params.id
-    connection.query('DELETE FROM projet WHERE id = ?', [idProject], (err) => {
-      if (err) {
-        res.status(500).send("Erreur lors de la suppression d'un projet")
-      } else {
-        res.sendStatus(204)
-      }
-    })
+  const idProject = req.params.id
+  connection.query('DELETE FROM projet WHERE id = ?', [idProject], (err) => {
+    if (err) {
+      res.status(500).send("Erreur lors de la suppression d'un projet")
+    } else {
+      res.sendStatus(204)
+    }
   })
+})
 
 module.exports = router
