@@ -1,5 +1,5 @@
 
-Ce dépôt gitHub correspond à la partie back de mon portfolio crée grâce à React, Node.js et SQL. Il fonctionne avec le depôt portfolio_front. Il comprend une page portfolio et un back office pour modifier le contenu.
+Ce dépôt gitHub correspond à la partie back de mon portfolio crée grâce à React, Node.js et SQL. Il fonctionne avec le depôt portfolio_front https://github.com/CelineElisa/portfolio_front.git. Il comprend une page portfolio et un back office pour modifier le contenu.
 
 Le dossier ressources du dépôt front comprend un export de la base de donnée SQL et une description des tables SQL, les users stories et les wireframes.
 
